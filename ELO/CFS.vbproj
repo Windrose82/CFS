@@ -197,6 +197,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Iconarchive-Red-Orb-Alphabet-Letter-C.ico" />
+    <None Include="Resources\calendar-icon.png" />
+    <None Include="Resources\folder-close-icon.png" />
+    <None Include="Resources\attachment-icon 16.png" />
+    <None Include="Resources\Windows-Messenger-icon.png" />
     <None Include="Resources\no-attachment-icon.png" />
     <None Include="Resources\attachment-icon.png" />
   </ItemGroup>

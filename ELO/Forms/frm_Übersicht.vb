@@ -21,8 +21,8 @@ Public Class frm_Übersicht
         If Table.Item(5, e.RowIndex).Value IsNot Nothing Then
             Dim doc As New BsonDocument
             Dim Datum As Date
-            If Table.Item(4, Table.SelectedRows.Item(0).Index).Value IsNot Nothing Then
-                Datum = CDate(Table.Item(4, Table.SelectedRows.Item(0).Index).Value)
+            If Table.Item(4, e.RowIndex).Value IsNot Nothing Then
+                Datum = CDate(Table.Item(4, e.RowIndex).Value)
             Else
                 Datum = Now.Date
             End If
@@ -54,19 +54,6 @@ Public Class frm_Übersicht
 
         End If
 
-    End Sub
-
-    Public Sub save()
-        If Table.CurrentRow.Cells(5).Value IsNot Nothing Then
-            Dim doc As New BsonDocument
-            doc = ReadData("dokumente", Table.CurrentRow.Cells(5).Value)
-            doc.Set("Status", New BsonValue(CType(Table.Item(0, Table.SelectedRows.Item(0).Index).Value, Boolean)).AsBoolean)
-            doc.Set("Bezeichnung", New BsonValue(Table.Item(1, Table.SelectedRows.Item(0).Index).Value))
-            doc.Set("Kontakt", New BsonValue(Table.Item(2, Table.SelectedRows.Item(0).Index).Value))
-            doc.Set("Ablage", New BsonValue(Table.Item(3, Table.SelectedRows.Item(0).Index).Value))
-            doc.Set("Datum", New BsonValue(CDate(Table.Item(4, Table.SelectedRows.Item(0).Index).Value)).AsDateTime)
-            UpdateData(doc, "dokumente")
-        End If
     End Sub
 
     Public Sub Reload(col As String, filter As String, art As String)
@@ -291,5 +278,28 @@ Public Class frm_Übersicht
         For Each doc In ordner.DD
             col.Add(doc)
         Next
+    End Sub
+
+    Private Sub Table_CellPainting(ByVal sender As System.Object,
+            ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) _
+            Handles Table.CellPainting
+        If e.RowIndex = -1 AndAlso e.ColumnIndex = Table.Columns.Count - 1 Then
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.ContentForeground)
+            e.Graphics.DrawImage(My.Resources.attachment_icon_16, e.CellBounds)
+            e.Handled = True
+        ElseIf e.RowIndex = -1 AndAlso e.ColumnIndex = Table.Columns.Count - 5 Then
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.ContentForeground)
+            e.Graphics.DrawImage(My.Resources.Windows_Messenger_icon, e.CellBounds)
+            e.Handled = True
+        ElseIf e.RowIndex = -1 AndAlso e.ColumnIndex = Table.Columns.Count - 4 Then
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.ContentForeground)
+            e.Graphics.DrawImage(My.Resources.folder_close_icon, e.CellBounds)
+            e.Handled = True
+        ElseIf e.RowIndex = -1 AndAlso e.ColumnIndex = Table.Columns.Count - 3 Then
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.ContentForeground)
+            e.Graphics.DrawImage(My.Resources.calendar_icon, e.CellBounds)
+            e.Handled = True
+        End If
+
     End Sub
 End Class
