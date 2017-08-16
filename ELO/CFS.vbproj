@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A35E47F5-E1F7-4FD3-A00C-D30E58C4428F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>CFS.My.MyApplication</StartupObject>
-    <RootNamespace>CFS</RootNamespace>
-    <AssemblyName>CFS</AssemblyName>
+    <StartupObject>CATFISh.My.MyApplication</StartupObject>
+    <RootNamespace>CATFISh</RootNamespace>
+    <AssemblyName>CATFISh</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>CFS.xml</DocumentationFile>
+    <DocumentationFile>CATFISh.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>CFS.xml</DocumentationFile>
+    <DocumentationFile>CATFISh.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

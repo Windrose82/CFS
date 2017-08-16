@@ -83,7 +83,7 @@ Partial Class frm_Übersicht
         'DataGridViewImageColumn1
         '
         Me.DataGridViewImageColumn1.HeaderText = "Anhang"
-        Me.DataGridViewImageColumn1.Image = Global.CFS.My.Resources.Resources.attachment_icon
+        Me.DataGridViewImageColumn1.Image = Global.CATFISh.My.Resources.Resources.attachment_icon
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -106,7 +106,7 @@ Partial Class frm_Übersicht
         Me.Bezeichnung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         Me.Bezeichnung.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Bezeichnung.HeaderText = "Bezeichnung"
+        Me.Bezeichnung.HeaderText = "ABC"
         Me.Bezeichnung.Name = "Bezeichnung"
         Me.Bezeichnung.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Bezeichnung.ToolTipText = "Bezeichnung"
@@ -149,7 +149,7 @@ Partial Class frm_Übersicht
         'Anhang
         '
         Me.Anhang.HeaderText = "Anhang"
-        Me.Anhang.Image = Global.CFS.My.Resources.Resources.no_attachment_icon
+        Me.Anhang.Image = Global.CATFISh.My.Resources.Resources.no_attachment_icon
         Me.Anhang.Name = "Anhang"
         Me.Anhang.ReadOnly = True
         Me.Anhang.Resizable = System.Windows.Forms.DataGridViewTriState.[True]

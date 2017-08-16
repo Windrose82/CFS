@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.CFS.frm_Main
+            Me.MainForm = Global.CATFISh.frm_Main
         End Sub
     End Class
 End Namespace

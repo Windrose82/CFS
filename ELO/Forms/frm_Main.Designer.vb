@@ -42,21 +42,20 @@ Partial Class frm_Main
         Me.ImageList4 = New System.Windows.Forms.ImageList(Me.components)
         Me.Projects = New System.Windows.Forms.TableLayoutPanel()
         Me.Header = New System.Windows.Forms.TableLayoutPanel()
-        Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
+        Me.btn_Add = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btn_Del = New System.Windows.Forms.Button()
+        Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.Tools = New System.Windows.Forms.TableLayoutPanel()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.tb_search = New System.Windows.Forms.TextBox()
-        Me.ImageList3 = New System.Windows.Forms.ImageList(Me.components)
-        Me.btn_Add = New System.Windows.Forms.Button()
-        Me.btn_Del = New System.Windows.Forms.Button()
         Me.btn_Demnaechst = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.btn_Ablage = New System.Windows.Forms.Button()
         Me.btn_Übersicht = New System.Windows.Forms.Button()
         Me.btn_Heute = New System.Windows.Forms.Button()
         Me.btn_search = New System.Windows.Forms.Button()
-        Me.MenuStrip1.SuspendLayout()
+        Me.tb_search = New System.Windows.Forms.TextBox()
+        Me.ImageList3 = New System.Windows.Forms.ImageList(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -264,14 +263,19 @@ Partial Class frm_Main
         Me.Header.Size = New System.Drawing.Size(886, 50)
         Me.Header.TabIndex = 6
         '
-        'ImageList2
+        'btn_Add
         '
-        Me.ImageList2.ImageStream = CType(resources.GetObject("ImageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList2.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList2.Images.SetKeyName(0, "Add-icon.png")
-        Me.ImageList2.Images.SetKeyName(1, "trash-icon.png")
-        Me.ImageList2.Images.SetKeyName(2, "save-icon.png")
-        Me.ImageList2.Images.SetKeyName(3, "Actions-process-stop-icon.png")
+        Me.btn_Add.BackColor = System.Drawing.SystemColors.Window
+        Me.btn_Add.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Add.FlatAppearance.BorderSize = 0
+        Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Add.Image = Global.CATFISh.My.Resources.Resources.Add_icon
+        Me.btn_Add.Location = New System.Drawing.Point(0, 0)
+        Me.btn_Add.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_Add.Name = "btn_Add"
+        Me.btn_Add.Size = New System.Drawing.Size(50, 50)
+        Me.btn_Add.TabIndex = 5
+        Me.btn_Add.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -285,6 +289,30 @@ Partial Class frm_Main
         Me.Label2.Size = New System.Drawing.Size(786, 50)
         Me.Label2.TabIndex = 2
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btn_Del
+        '
+        Me.btn_Del.BackColor = System.Drawing.SystemColors.Window
+        Me.btn_Del.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btn_Del.FlatAppearance.BorderSize = 0
+        Me.btn_Del.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Del.ImageIndex = 1
+        Me.btn_Del.ImageList = Me.ImageList2
+        Me.btn_Del.Location = New System.Drawing.Point(836, 0)
+        Me.btn_Del.Margin = New System.Windows.Forms.Padding(0)
+        Me.btn_Del.Name = "btn_Del"
+        Me.btn_Del.Size = New System.Drawing.Size(50, 50)
+        Me.btn_Del.TabIndex = 4
+        Me.btn_Del.UseVisualStyleBackColor = False
+        '
+        'ImageList2
+        '
+        Me.ImageList2.ImageStream = CType(resources.GetObject("ImageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList2.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList2.Images.SetKeyName(0, "Add-icon.png")
+        Me.ImageList2.Images.SetKeyName(1, "trash-icon.png")
+        Me.ImageList2.Images.SetKeyName(2, "save-icon.png")
+        Me.ImageList2.Images.SetKeyName(3, "Actions-process-stop-icon.png")
         '
         'MainPanel
         '
@@ -322,63 +350,6 @@ Partial Class frm_Main
         Me.Tools.Size = New System.Drawing.Size(1186, 50)
         Me.Tools.TabIndex = 1
         '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "blueBar-bk.jpg")
-        Me.ImageList1.Images.SetKeyName(1, "blackBar-bk.jpg")
-        '
-        'tb_search
-        '
-        Me.tb_search.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tb_search.Font = New System.Drawing.Font("Arial Unicode MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_search.Location = New System.Drawing.Point(999, 12)
-        Me.tb_search.Margin = New System.Windows.Forms.Padding(3, 12, 3, 3)
-        Me.tb_search.Name = "tb_search"
-        Me.tb_search.Size = New System.Drawing.Size(144, 28)
-        Me.tb_search.TabIndex = 4
-        Me.tb_search.Text = "Suche"
-        '
-        'ImageList3
-        '
-        Me.ImageList3.ImageStream = CType(resources.GetObject("ImageList3.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList3.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList3.Images.SetKeyName(0, "folder-close-icon.png")
-        Me.ImageList3.Images.SetKeyName(1, "Actions-view-calendar-tasks-icon.png")
-        Me.ImageList3.Images.SetKeyName(2, "User-Interface-Checked-Checkbox-icon.png")
-        Me.ImageList3.Images.SetKeyName(3, "User-Interface-Unchecked-Checkbox-icon.png")
-        Me.ImageList3.Images.SetKeyName(4, "Button-Next-icon.png")
-        '
-        'btn_Add
-        '
-        Me.btn_Add.BackColor = System.Drawing.SystemColors.Window
-        Me.btn_Add.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Add.FlatAppearance.BorderSize = 0
-        Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Add.Image = Global.CFS.My.Resources.Resources.Add_icon
-        Me.btn_Add.Location = New System.Drawing.Point(0, 0)
-        Me.btn_Add.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_Add.Name = "btn_Add"
-        Me.btn_Add.Size = New System.Drawing.Size(50, 50)
-        Me.btn_Add.TabIndex = 5
-        Me.btn_Add.UseVisualStyleBackColor = False
-        '
-        'btn_Del
-        '
-        Me.btn_Del.BackColor = System.Drawing.SystemColors.Window
-        Me.btn_Del.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btn_Del.FlatAppearance.BorderSize = 0
-        Me.btn_Del.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Del.ImageIndex = 1
-        Me.btn_Del.ImageList = Me.ImageList2
-        Me.btn_Del.Location = New System.Drawing.Point(836, 0)
-        Me.btn_Del.Margin = New System.Windows.Forms.Padding(0)
-        Me.btn_Del.Name = "btn_Del"
-        Me.btn_Del.Size = New System.Drawing.Size(50, 50)
-        Me.btn_Del.TabIndex = 4
-        Me.btn_Del.UseVisualStyleBackColor = False
-        '
         'btn_Demnaechst
         '
         Me.btn_Demnaechst.BackColor = System.Drawing.SystemColors.MenuText
@@ -397,6 +368,13 @@ Partial Class frm_Main
         Me.btn_Demnaechst.Text = "Demnächst"
         Me.btn_Demnaechst.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btn_Demnaechst.UseVisualStyleBackColor = False
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "blueBar-bk.jpg")
+        Me.ImageList1.Images.SetKeyName(1, "blackBar-bk.jpg")
         '
         'btn_Ablage
         '
@@ -472,6 +450,27 @@ Partial Class frm_Main
         Me.btn_search.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
         Me.btn_search.UseVisualStyleBackColor = False
         '
+        'tb_search
+        '
+        Me.tb_search.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_search.Font = New System.Drawing.Font("Arial Unicode MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_search.Location = New System.Drawing.Point(999, 12)
+        Me.tb_search.Margin = New System.Windows.Forms.Padding(3, 12, 3, 3)
+        Me.tb_search.Name = "tb_search"
+        Me.tb_search.Size = New System.Drawing.Size(144, 28)
+        Me.tb_search.TabIndex = 4
+        Me.tb_search.Text = "Suche"
+        '
+        'ImageList3
+        '
+        Me.ImageList3.ImageStream = CType(resources.GetObject("ImageList3.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList3.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList3.Images.SetKeyName(0, "folder-close-icon.png")
+        Me.ImageList3.Images.SetKeyName(1, "Actions-view-calendar-tasks-icon.png")
+        Me.ImageList3.Images.SetKeyName(2, "User-Interface-Checked-Checkbox-icon.png")
+        Me.ImageList3.Images.SetKeyName(3, "User-Interface-Unchecked-Checkbox-icon.png")
+        Me.ImageList3.Images.SetKeyName(4, "Button-Next-icon.png")
+        '
         'frm_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -482,9 +481,7 @@ Partial Class frm_Main
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frm_Main"
-        Me.Text = "Chaotic Filing System"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.Text = "CATFISh"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
