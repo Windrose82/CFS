@@ -155,7 +155,7 @@ Public Class frm_Main
         System.Diagnostics.Process.Start(ReadDocument(Files.SelectedItems(0).Tag))
     End Sub
 
-    Private Sub EinstellungenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EinstellungenToolStripMenuItem.Click
+    Private Sub EinstellungenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EinstellungenToolStripMenuItem.Click, EinstellungenToolStripMenuItem1.Click, OptionenToolStripMenuItem.Click
         btn_Add.ImageIndex = 2
         btn_Del.ImageIndex = 3
         OpenForm(frm_Einstellungen, MainPanel)
@@ -165,7 +165,7 @@ Public Class frm_Main
         tb_search.SelectAll()
     End Sub
 
-    Private Sub ExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem.Click
+    Private Sub ExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem.Click, ExcelToolStripMenuItem1.Click, ExcelToolStripMenuItem2.Click
         Dim xls_Appl As Excel.Application ' Excel Anwendung 
         Dim xls_Mappe As Excel.Workbook ' Excel Arbeitsmappe 
         Dim xls_Blatt As Excel.Worksheet ' Excel Blatt (Tabelle) 
@@ -205,6 +205,10 @@ Public Class frm_Main
                 End If
             Next
         End If
+    End Sub
+
+    Private Sub BeendenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BeendenToolStripMenuItem1.Click, BeendenToolStripMenuItem2.Click
+        Me.Close()
     End Sub
 End Class
 Public Class ordner

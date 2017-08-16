@@ -25,6 +25,18 @@ Partial Class frm_Main
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.DateiToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeitenansichtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExcelToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BeendenToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BearbeitenToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExtrasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HilfeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.InfoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DateiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,9 +55,9 @@ Partial Class frm_Main
         Me.Projects = New System.Windows.Forms.TableLayoutPanel()
         Me.Header = New System.Windows.Forms.TableLayoutPanel()
         Me.btn_Add = New System.Windows.Forms.Button()
+        Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_Del = New System.Windows.Forms.Button()
-        Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.Tools = New System.Windows.Forms.TableLayoutPanel()
         Me.btn_Demnaechst = New System.Windows.Forms.Button()
@@ -56,6 +68,15 @@ Partial Class frm_Main
         Me.btn_search = New System.Windows.Forms.Button()
         Me.tb_search = New System.Windows.Forms.TextBox()
         Me.ImageList3 = New System.Windows.Forms.ImageList(Me.components)
+        Me.DateiToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BeendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BearbeitenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EinstellungenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -67,11 +88,89 @@ Partial Class frm_Main
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiToolStripMenuItem2, Me.BearbeitenToolStripMenuItem2, Me.ExtrasToolStripMenuItem, Me.HilfeToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1186, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'DateiToolStripMenuItem2
+        '
+        Me.DateiToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeitenansichtToolStripMenuItem, Me.toolStripSeparator2, Me.BeendenToolStripMenuItem2})
+        Me.DateiToolStripMenuItem2.Name = "DateiToolStripMenuItem2"
+        Me.DateiToolStripMenuItem2.Size = New System.Drawing.Size(46, 20)
+        Me.DateiToolStripMenuItem2.Text = "&Datei"
+        '
+        'SeitenansichtToolStripMenuItem
+        '
+        Me.SeitenansichtToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.SeitenansichtToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExcelToolStripMenuItem2})
+        Me.SeitenansichtToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SeitenansichtToolStripMenuItem.Name = "SeitenansichtToolStripMenuItem"
+        Me.SeitenansichtToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
+        Me.SeitenansichtToolStripMenuItem.Text = "Export"
+        '
+        'ExcelToolStripMenuItem2
+        '
+        Me.ExcelToolStripMenuItem2.Image = Global.CATFISh.My.Resources.Resources.Excel_icon
+        Me.ExcelToolStripMenuItem2.Name = "ExcelToolStripMenuItem2"
+        Me.ExcelToolStripMenuItem2.Size = New System.Drawing.Size(100, 22)
+        Me.ExcelToolStripMenuItem2.Text = "Excel"
+        '
+        'toolStripSeparator2
+        '
+        Me.toolStripSeparator2.Name = "toolStripSeparator2"
+        Me.toolStripSeparator2.Size = New System.Drawing.Size(117, 6)
+        '
+        'BeendenToolStripMenuItem2
+        '
+        Me.BeendenToolStripMenuItem2.Name = "BeendenToolStripMenuItem2"
+        Me.BeendenToolStripMenuItem2.Size = New System.Drawing.Size(120, 22)
+        Me.BeendenToolStripMenuItem2.Text = "&Beenden"
+        '
+        'BearbeitenToolStripMenuItem2
+        '
+        Me.BearbeitenToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripSeparator4})
+        Me.BearbeitenToolStripMenuItem2.Name = "BearbeitenToolStripMenuItem2"
+        Me.BearbeitenToolStripMenuItem2.Size = New System.Drawing.Size(75, 20)
+        Me.BearbeitenToolStripMenuItem2.Text = "&Bearbeiten"
+        '
+        'toolStripSeparator4
+        '
+        Me.toolStripSeparator4.Name = "toolStripSeparator4"
+        Me.toolStripSeparator4.Size = New System.Drawing.Size(57, 6)
+        '
+        'ExtrasToolStripMenuItem
+        '
+        Me.ExtrasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionenToolStripMenuItem})
+        Me.ExtrasToolStripMenuItem.Name = "ExtrasToolStripMenuItem"
+        Me.ExtrasToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.ExtrasToolStripMenuItem.Text = "E&xtras"
+        '
+        'OptionenToolStripMenuItem
+        '
+        Me.OptionenToolStripMenuItem.Name = "OptionenToolStripMenuItem"
+        Me.OptionenToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.OptionenToolStripMenuItem.Text = "&Optionen"
+        '
+        'HilfeToolStripMenuItem1
+        '
+        Me.HilfeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripSeparator5, Me.InfoToolStripMenuItem1})
+        Me.HilfeToolStripMenuItem1.Name = "HilfeToolStripMenuItem1"
+        Me.HilfeToolStripMenuItem1.Size = New System.Drawing.Size(44, 20)
+        Me.HilfeToolStripMenuItem1.Text = "&Hilfe"
+        '
+        'toolStripSeparator5
+        '
+        Me.toolStripSeparator5.Name = "toolStripSeparator5"
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(101, 6)
+        '
+        'InfoToolStripMenuItem1
+        '
+        Me.InfoToolStripMenuItem1.Name = "InfoToolStripMenuItem1"
+        Me.InfoToolStripMenuItem1.Size = New System.Drawing.Size(104, 22)
+        Me.InfoToolStripMenuItem1.Text = "Inf&o..."
         '
         'DateiToolStripMenuItem
         '
@@ -269,13 +368,23 @@ Partial Class frm_Main
         Me.btn_Add.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_Add.FlatAppearance.BorderSize = 0
         Me.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Add.Image = Global.CATFISh.My.Resources.Resources.Add_icon
+        Me.btn_Add.ImageIndex = 0
+        Me.btn_Add.ImageList = Me.ImageList2
         Me.btn_Add.Location = New System.Drawing.Point(0, 0)
         Me.btn_Add.Margin = New System.Windows.Forms.Padding(0)
         Me.btn_Add.Name = "btn_Add"
         Me.btn_Add.Size = New System.Drawing.Size(50, 50)
         Me.btn_Add.TabIndex = 5
         Me.btn_Add.UseVisualStyleBackColor = False
+        '
+        'ImageList2
+        '
+        Me.ImageList2.ImageStream = CType(resources.GetObject("ImageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList2.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList2.Images.SetKeyName(0, "Add-icon.png")
+        Me.ImageList2.Images.SetKeyName(1, "trash-icon.png")
+        Me.ImageList2.Images.SetKeyName(2, "save-icon.png")
+        Me.ImageList2.Images.SetKeyName(3, "Actions-process-stop-icon.png")
         '
         'Label2
         '
@@ -304,15 +413,6 @@ Partial Class frm_Main
         Me.btn_Del.Size = New System.Drawing.Size(50, 50)
         Me.btn_Del.TabIndex = 4
         Me.btn_Del.UseVisualStyleBackColor = False
-        '
-        'ImageList2
-        '
-        Me.ImageList2.ImageStream = CType(resources.GetObject("ImageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList2.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList2.Images.SetKeyName(0, "Add-icon.png")
-        Me.ImageList2.Images.SetKeyName(1, "trash-icon.png")
-        Me.ImageList2.Images.SetKeyName(2, "save-icon.png")
-        Me.ImageList2.Images.SetKeyName(3, "Actions-process-stop-icon.png")
         '
         'MainPanel
         '
@@ -471,6 +571,54 @@ Partial Class frm_Main
         Me.ImageList3.Images.SetKeyName(3, "User-Interface-Unchecked-Checkbox-icon.png")
         Me.ImageList3.Images.SetKeyName(4, "Button-Next-icon.png")
         '
+        'DateiToolStripMenuItem1
+        '
+        Me.DateiToolStripMenuItem1.Name = "DateiToolStripMenuItem1"
+        Me.DateiToolStripMenuItem1.Size = New System.Drawing.Size(46, 20)
+        Me.DateiToolStripMenuItem1.Text = "Datei"
+        '
+        'ExportToolStripMenuItem1
+        '
+        Me.ExportToolStripMenuItem1.Name = "ExportToolStripMenuItem1"
+        Me.ExportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExportToolStripMenuItem1.Text = "Export"
+        '
+        'ExcelToolStripMenuItem1
+        '
+        Me.ExcelToolStripMenuItem1.Name = "ExcelToolStripMenuItem1"
+        Me.ExcelToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExcelToolStripMenuItem1.Text = "Excel"
+        '
+        'BeendenToolStripMenuItem1
+        '
+        Me.BeendenToolStripMenuItem1.Name = "BeendenToolStripMenuItem1"
+        Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.BeendenToolStripMenuItem1.Text = "Beenden"
+        '
+        'BearbeitenToolStripMenuItem1
+        '
+        Me.BearbeitenToolStripMenuItem1.Name = "BearbeitenToolStripMenuItem1"
+        Me.BearbeitenToolStripMenuItem1.Size = New System.Drawing.Size(75, 20)
+        Me.BearbeitenToolStripMenuItem1.Text = "Bearbeiten"
+        '
+        'EinstellungenToolStripMenuItem1
+        '
+        Me.EinstellungenToolStripMenuItem1.Name = "EinstellungenToolStripMenuItem1"
+        Me.EinstellungenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.EinstellungenToolStripMenuItem1.Text = "Einstellungen"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'InfoToolStripMenuItem
+        '
+        Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InfoToolStripMenuItem.Text = "Info"
+        '
         'frm_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -482,6 +630,8 @@ Partial Class frm_Main
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frm_Main"
         Me.Text = "CATFISh"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
@@ -529,4 +679,24 @@ Partial Class frm_Main
     Friend WithEvents tb_search As TextBox
     Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExcelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DateiToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ExportToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ExcelToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents BeendenToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents BearbeitenToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents EinstellungenToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InfoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DateiToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents SeitenansichtToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExcelToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents BeendenToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents BearbeitenToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents ExtrasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OptionenToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HilfeToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents InfoToolStripMenuItem1 As ToolStripMenuItem
 End Class

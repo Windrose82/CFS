@@ -15,16 +15,22 @@ Public Class frm_Übersicht
 
     Private Sub Table_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles Table.CellEndEdit
         Dim titleText As String = Table.Columns(3).HeaderText
+        Debug.Print(e.ColumnIndex)
         If Table.CurrentCell.ColumnIndex = 3 Then
             Table.Columns(3).Width = 55
         End If
         If Table.Item(5, e.RowIndex).Value IsNot Nothing Then
             Dim doc As New BsonDocument
             Dim Datum As Date
-            If Table.Item(4, e.RowIndex).Value IsNot Nothing Then
+            If Table.Item(4, e.RowIndex).Value IsNot Nothing And IsDate(Table.Item(4, e.RowIndex).Value) = True Then
                 Datum = CDate(Table.Item(4, e.RowIndex).Value)
+            ElseIf Table.Item(4, e.RowIndex).Value IsNot Nothing And IsDate(Table.Item(4, e.RowIndex).Value) = False Then
+                MsgBox("Das Datum existiert nicht!!!")
+                Datum = Now.Date
+                Table.Item(4, e.RowIndex).Value = Now.Date
             Else
                 Datum = Now.Date
+                Table.Item(4, e.RowIndex).Value = Now.Date
             End If
             doc = ReadData("dokumente", Table.Item(5, e.RowIndex).Value)
             doc.Set("Status", New BsonValue(CType(Table.Item(0, e.RowIndex).Value, Boolean)).AsBoolean)
@@ -54,6 +60,18 @@ Public Class frm_Übersicht
 
         End If
 
+        If e.ColumnIndex = 0 Or e.ColumnIndex = 4 Then
+
+            '    If frm_Main.btn_Übersicht.ImageIndex = 0 Then
+            '        Reload("Status", False, "EQ")
+            '    ElseIf frm_Main.btn_Heute.ImageIndex = 0 Then
+            '        Reload("Datum", DateAdd(DateInterval.Hour, 23, Now.Date), "LTE")
+            '    ElseIf frm_Main.btn_Demnaechst.ImageIndex = 0 Then
+            '        Reload("Datum", DateAdd(DateInterval.Hour, 23, Now.Date), "GT")
+            '    ElseIf frm_Main.btn_Ablage.ImageIndex = 0 Then
+            '        Reload("Status", True, "EQ")
+            '    End If
+        End If
     End Sub
 
     Public Sub Reload(col As String, filter As String, art As String)

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CFS", "ELO\CFS.vbproj", "{A35E47F5-E1F7-4FD3-A00C-D30E58C4428F}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CATFISh", "ELO\CATFISh.vbproj", "{A35E47F5-E1F7-4FD3-A00C-D30E58C4428F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
