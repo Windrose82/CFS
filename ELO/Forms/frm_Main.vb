@@ -210,6 +210,17 @@ Public Class frm_Main
     Private Sub BeendenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BeendenToolStripMenuItem1.Click, BeendenToolStripMenuItem2.Click
         Me.Close()
     End Sub
+
+    Private Sub frm_Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        For Each foundFile As String In My.Computer.FileSystem.GetFiles(
+        My.Application.Info.DirectoryPath & "\Temp",
+        Microsoft.VisualBasic.FileIO.SearchOption.SearchAllSubDirectories, "*.*")
+
+            My.Computer.FileSystem.DeleteFile(foundFile,
+            Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
+            Microsoft.VisualBasic.FileIO.RecycleOption.DeletePermanently)
+        Next
+    End Sub
 End Class
 Public Class ordner
     Public Shared DD As New List(Of String)

@@ -90,8 +90,17 @@ Module Database
         Dim mem As New MemoryStream
         document = db.FileStorage.Download(index, mem)
         Dim bytes() As Byte = mem.ToArray
-        File.WriteAllBytes("C:\Temp\temp." & document.Filename.Substring(document.Filename.LastIndexOf(".") + 1, document.Filename.Length - document.Filename.LastIndexOf(".") - 1), bytes)
-        Return ("C:\Temp\temp." & document.Filename.Substring(document.Filename.LastIndexOf(".") + 1, document.Filename.Length - document.Filename.LastIndexOf(".") - 1))
+        If Not IO.Directory.Exists(My.Application.Info.DirectoryPath & "\temp") Then
+            ' Nein! Jetzt erstellen...
+            Try
+                IO.Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\temp")
+                ' Ordner wurde korrekt erstellt!
+            Catch ex As Exception
+                ' Ordner wurde nicht erstellt
+            End Try
+        End If
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\Temp\temp." & document.Filename.Substring(document.Filename.LastIndexOf(".") + 1, document.Filename.Length - document.Filename.LastIndexOf(".") - 1), bytes)
+        Return (My.Application.Info.DirectoryPath & "\Temp\temp." & document.Filename.Substring(document.Filename.LastIndexOf(".") + 1, document.Filename.Length - document.Filename.LastIndexOf(".") - 1))
         'If document.Filename.Substring(document.Filename.LastIndexOf(".") + 1, document.Filename.Length - document.Filename.LastIndexOf(".") - 1) = "txt" Then
         '    Dim str As New StreamReader(mem)
         '    mem.Seek(0, System.IO.SeekOrigin.Begin)
