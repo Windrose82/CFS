@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("C:\Temp\Request.db")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\Temp")>  _
         Public Property Datenbank() As String
             Get
                 Return CType(Me("Datenbank"),String)
@@ -68,13 +68,25 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property Einstellung() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("florian.hartung@gmx.de")>  _
+        Public Property EMail() As String
             Get
-                Return CType(Me("Einstellung"),String)
+                Return CType(Me("EMail"),String)
             End Get
             Set
-                Me("Einstellung") = value
+                Me("EMail") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property Aufgaben() As Integer
+            Get
+                Return CType(Me("Aufgaben"),Integer)
+            End Get
+            Set
+                Me("Aufgaben") = value
             End Set
         End Property
     End Class

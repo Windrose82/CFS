@@ -31,6 +31,8 @@ Partial Class frm_Einstellungen
         Me.tb_Datenbank = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_file = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Email = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.grd_Ablage = New System.Windows.Forms.DataGridView()
         Me.Ablage = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,6 +40,8 @@ Partial Class frm_Einstellungen
         Me.Maximum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.tb_nr = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -86,6 +90,10 @@ Partial Class frm_Einstellungen
         Me.TableLayoutPanel3.Controls.Add(Me.tb_Datenbank, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btn_file, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Email, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.tb_nr, 1, 2)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -134,6 +142,28 @@ Partial Class frm_Einstellungen
         Me.btn_file.TabIndex = 2
         Me.btn_file.UseVisualStyleBackColor = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(185, 30)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Email Adresse"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Email
+        '
+        Me.Email.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Email.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Email.Location = New System.Drawing.Point(194, 34)
+        Me.Email.Margin = New System.Windows.Forms.Padding(3, 4, 3, 3)
+        Me.Email.Name = "Email"
+        Me.Email.Size = New System.Drawing.Size(567, 22)
+        Me.Email.TabIndex = 4
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.grd_Ablage)
@@ -178,6 +208,28 @@ Partial Class frm_Einstellungen
         Me.ID.Name = "ID"
         Me.ID.Visible = False
         '
+        'tb_nr
+        '
+        Me.tb_nr.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_nr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_nr.Location = New System.Drawing.Point(194, 64)
+        Me.tb_nr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 3)
+        Me.tb_nr.Name = "tb_nr"
+        Me.tb_nr.Size = New System.Drawing.Size(567, 22)
+        Me.tb_nr.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 60)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(185, 30)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Nummernkreis Aufgaben"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'frm_Einstellungen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -211,4 +263,8 @@ Partial Class frm_Einstellungen
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents btn_file As Button
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Email As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents tb_nr As TextBox
 End Class

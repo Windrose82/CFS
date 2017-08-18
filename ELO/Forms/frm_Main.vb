@@ -63,6 +63,8 @@ Public Class frm_Main
             Files.Clear()
         ElseIf btn_Add.ImageIndex = 2 Then
             My.Settings.Datenbank = frm_Einstellungen.tb_Datenbank.Text
+            My.Settings.EMail = frm_Einstellungen.Email.Text
+            My.Settings.Aufgaben = frm_Einstellungen.tb_nr.Text
             For Each row In frm_Einstellungen.grd_Ablage.Rows
                 If row.cells(3).value Is Nothing And row.index + 1 <> frm_Einstellungen.grd_Ablage.Rows.Count Then
                     Dim project As BsonDocument = New BsonDocument From {
@@ -130,6 +132,7 @@ Public Class frm_Main
 
     'Laden des Hauptformulars, füllen des Tree-Elements und Aktion bei Click auf Tree-Element
     Private Sub frm_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Button_Activate(btn_Heute)
         OpenForm(frm_Übersicht, MainPanel)
         frm_Übersicht.Reload("Datum", DateAdd(DateInterval.Hour, 23, Now.Date), "LTE")
@@ -212,8 +215,17 @@ Public Class frm_Main
     End Sub
 
     Private Sub frm_Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Not IO.Directory.Exists(My.Settings.Datenbank & "\Temp") Then
+            ' Nein! Jetzt erstellen...
+            Try
+                IO.Directory.CreateDirectory(My.Settings.Datenbank & "\Temp")
+                ' Ordner wurde korrekt erstellt!
+            Catch ex As Exception
+                ' Ordner wurde nicht erstellt
+            End Try
+        End If
         For Each foundFile As String In My.Computer.FileSystem.GetFiles(
-        My.Application.Info.DirectoryPath & "\Temp",
+        My.Settings.Datenbank & "\Temp",
         Microsoft.VisualBasic.FileIO.SearchOption.SearchAllSubDirectories, "*.*")
 
             My.Computer.FileSystem.DeleteFile(foundFile,

@@ -59,19 +59,6 @@ Public Class frm_Übersicht
             End If
 
         End If
-
-        If e.ColumnIndex = 0 Or e.ColumnIndex = 4 Then
-
-            '    If frm_Main.btn_Übersicht.ImageIndex = 0 Then
-            '        Reload("Status", False, "EQ")
-            '    ElseIf frm_Main.btn_Heute.ImageIndex = 0 Then
-            '        Reload("Datum", DateAdd(DateInterval.Hour, 23, Now.Date), "LTE")
-            '    ElseIf frm_Main.btn_Demnaechst.ImageIndex = 0 Then
-            '        Reload("Datum", DateAdd(DateInterval.Hour, 23, Now.Date), "GT")
-            '    ElseIf frm_Main.btn_Ablage.ImageIndex = 0 Then
-            '        Reload("Status", True, "EQ")
-            '    End If
-        End If
     End Sub
 
     Public Sub Reload(col As String, filter As String, art As String)
@@ -165,7 +152,6 @@ Public Class frm_Übersicht
                         Next
                         objOL = Nothing
                         objMI = Nothing
-
                     End If
                     ' Make sure we have a actual file and also if we do make sure we erase it when done
                 Else
@@ -177,16 +163,16 @@ Public Class frm_Übersicht
             Table.Rows(hitTestInfo.RowIndex).Selected = True
             LoadFiles(hitTestInfo.RowIndex)
         Else
+            Table.ClearSelection()
             Table.Rows.Add("False")
             Dim project As BsonDocument = New BsonDocument From {
                             {"Status", False},
                             {"Bezeichnung", ""},
                             {"Kontakt", ""},
                             {"Ablage", ""},
-                            {"Datum", ""}
+                            {"Datum", Now.Date}
                         }
             WriteData(project, "dokumente")
-            Table.ClearSelection()
             Table.CurrentCell = Table.Rows.Item(Table.Rows.Count - 1).Cells(1)
             Table.CurrentRow.Cells(5).Value = ReadDataLast("dokumente").ToString
             frm_Main.Files.Clear()
@@ -213,16 +199,32 @@ Public Class frm_Übersicht
                     If InStr(myTempFile, ".msg") > 0 Then
                         Dim objOL As New Microsoft.Office.Interop.Outlook.Application
                         Dim objMI As Microsoft.Office.Interop.Outlook.MailItem
-                        If objOL.ActiveExplorer.Selection.Count > 1 Then
+                        Dim SubFolder As Microsoft.Office.Interop.Outlook.MAPIFolder
+                        If My.Settings.EMail <> "" Then
+                            SubFolder = objOL.GetNamespace("MAPI").Folders.Item(My.Settings.EMail).Folders.Item("Posteingang").Folders.Item("1 Später")
                         End If
+
                         For Each objMI In objOL.ActiveExplorer.Selection()
+                            If My.Settings.EMail <> "" Then
+                                Debug.Print(My.Settings.Aufgaben.ToString("00000000"))
+                                objMI.Subject = "#" & My.Settings.Aufgaben.ToString("00000000") & " - " & objMI.Subject
+                                objMI.Move(SubFolder)
+                                My.Settings.Aufgaben += 1
+                            End If
+
+
                             objMI.SaveAs(myTempFile)
                             WriteDocument(myTempFile, Table.Rows.Item(Table.CurrentRow.Index).Cells(5).Value)
                             My.Computer.FileSystem.DeleteFile(myTempFile)
+
                             Exit For
                         Next
+                        Table.CurrentRow.Cells(1).Value = objMI.Subject.ToString
+                        Table.CurrentRow.Cells(2).Value = objMI.SenderName.ToString
+
                         objOL = Nothing
                         objMI = Nothing
+                    Else
 
                     End If
                     ' Make sure we have a actual file and also if we do make sure we erase it when done

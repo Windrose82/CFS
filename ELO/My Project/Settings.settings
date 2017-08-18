@@ -3,10 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="Datenbank" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Temp\Request.db</Value>
+      <Value Profile="(Default)">C:\Temp</Value>
     </Setting>
-    <Setting Name="Einstellung" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="EMail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">florian.hartung@gmx.de</Value>
+    </Setting>
+    <Setting Name="Aufgaben" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -11,6 +11,8 @@ Imports LiteDB.BsonValue
 Public Class frm_Einstellungen
     Private Sub frm_Einstellungen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tb_Datenbank.Text = My.Settings.Datenbank
+        Email.Text = My.Settings.EMail
+        tb_nr.Text = My.Settings.Aufgaben
         For Each Document As BsonDocument In ReadAll("ablage")
             grd_Ablage.Rows.Add(
                 Document.Item("Ablage").ToString,
@@ -23,7 +25,7 @@ Public Class frm_Einstellungen
 
     Private Sub btn_file_Click(sender As Object, e As EventArgs) Handles btn_file.Click
         If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
-            tb_Datenbank.Text = FolderBrowserDialog1.SelectedPath & "\Files.db"
+            tb_Datenbank.Text = FolderBrowserDialog1.SelectedPath
         End If
     End Sub
 
