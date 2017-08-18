@@ -65,6 +65,7 @@ Public Class frm_Main
             My.Settings.Datenbank = frm_Einstellungen.tb_Datenbank.Text
             My.Settings.EMail = frm_Einstellungen.Email.Text
             My.Settings.Aufgaben = frm_Einstellungen.tb_nr.Text
+            My.Settings.Ordner = frm_Einstellungen.tb_ordner.Text
             For Each row In frm_Einstellungen.grd_Ablage.Rows
                 If row.cells(3).value Is Nothing And row.index + 1 <> frm_Einstellungen.grd_Ablage.Rows.Count Then
                     Dim project As BsonDocument = New BsonDocument From {

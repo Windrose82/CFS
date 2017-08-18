@@ -42,6 +42,8 @@ Partial Class frm_Einstellungen
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.tb_nr = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tb_ordner = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -94,6 +96,8 @@ Partial Class frm_Einstellungen
         Me.TableLayoutPanel3.Controls.Add(Me.Email, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.tb_nr, 1, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.tb_ordner, 1, 3)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -230,6 +234,28 @@ Partial Class frm_Einstellungen
         Me.Label3.Text = "Nummernkreis Aufgaben"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(3, 90)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(185, 30)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Outlook Ordner"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tb_ordner
+        '
+        Me.tb_ordner.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_ordner.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_ordner.Location = New System.Drawing.Point(194, 94)
+        Me.tb_ordner.Margin = New System.Windows.Forms.Padding(3, 4, 3, 3)
+        Me.tb_ordner.Name = "tb_ordner"
+        Me.tb_ordner.Size = New System.Drawing.Size(567, 22)
+        Me.tb_ordner.TabIndex = 8
+        '
         'frm_Einstellungen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -267,4 +293,6 @@ Partial Class frm_Einstellungen
     Friend WithEvents Email As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents tb_nr As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents tb_ordner As TextBox
 End Class

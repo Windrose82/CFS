@@ -89,6 +89,18 @@ Namespace My
                 Me("Aufgaben") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1 Später")>  _
+        Public Property Ordner() As String
+            Get
+                Return CType(Me("Ordner"),String)
+            End Get
+            Set
+                Me("Ordner") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

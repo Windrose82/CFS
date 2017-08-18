@@ -11,5 +11,8 @@
     <Setting Name="Aufgaben" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="Ordner" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1 Später</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

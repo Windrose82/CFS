@@ -13,6 +13,7 @@ Public Class frm_Einstellungen
         tb_Datenbank.Text = My.Settings.Datenbank
         Email.Text = My.Settings.EMail
         tb_nr.Text = My.Settings.Aufgaben
+        tb_ordner.Text = My.Settings.Ordner
         For Each Document As BsonDocument In ReadAll("ablage")
             grd_Ablage.Rows.Add(
                 Document.Item("Ablage").ToString,
