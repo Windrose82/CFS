@@ -66,7 +66,7 @@ Public Class frm_Einstellungen
         ' Folder per Ordnerauswahl setzen
         myFolder = myNamespace.PickFolder
 
-        tb_ordner.Text = myFolder.FullFolderPath
+        tb_ordner.Text = myFolder.Name
         ' Öffnet Outlook und zeigt den Inhalt des ausgewählten Ordners an
 
 
