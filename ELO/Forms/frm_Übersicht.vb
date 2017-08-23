@@ -201,12 +201,12 @@ Public Class frm_Übersicht
                         Dim objMI As Microsoft.Office.Interop.Outlook.MailItem
                         Dim SubFolder As Microsoft.Office.Interop.Outlook.MAPIFolder
                         If My.Settings.EMail <> "" Then
-                            SubFolder = objOL.GetNamespace("MAPI").Folders.Item(My.Settings.EMail).Folders.Item("Posteingang").Folders.Item(My.Settings.Ordner)
+                            SubFolder = objOL.GetNamespace("MAPI").Folders.Item(My.Settings.EMail).Folders.Item(My.Settings.Ordner)
                         End If
 
                         For Each objMI In objOL.ActiveExplorer.Selection()
                             If My.Settings.EMail <> "" Then
-                                Debug.Print(My.Settings.Aufgaben.ToString("00000000"))
+
                                 objMI.Subject = "#" & My.Settings.Aufgaben.ToString("00000000") & " - " & objMI.Subject
                                 objMI.Move(SubFolder)
                                 My.Settings.Aufgaben += 1
