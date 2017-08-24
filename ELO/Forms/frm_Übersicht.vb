@@ -14,32 +14,32 @@ Public Class frm_Übersicht
     End Sub
 
     Private Sub Table_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles Table.CellEndEdit
-        Dim titleText As String = Table.Columns(3).HeaderText
-        Debug.Print(e.ColumnIndex)
-        If Table.CurrentCell.ColumnIndex = 3 Then
-            Table.Columns(3).Width = 55
+        Dim titleText As String = Table.Columns(4).HeaderText
+        If Table.CurrentCell.ColumnIndex = 4 Then
+            Table.Columns(4).Width = 55
         End If
         If Table.Item(5, e.RowIndex).Value IsNot Nothing Then
             Dim doc As New BsonDocument
             Dim Datum As Date
-            If Table.Item(4, e.RowIndex).Value IsNot Nothing And IsDate(Table.Item(4, e.RowIndex).Value) = True Then
-                Datum = CDate(Table.Item(4, e.RowIndex).Value)
-            ElseIf Table.Item(4, e.RowIndex).Value IsNot Nothing And IsDate(Table.Item(4, e.RowIndex).Value) = False Then
+            If Table.Item(6, e.RowIndex).Value IsNot Nothing And IsDate(Table.Item(6, e.RowIndex).Value) = True Then
+                Datum = CDate(Table.Item(6, e.RowIndex).Value)
+            ElseIf Table.Item(6, e.RowIndex).Value IsNot Nothing And IsDate(Table.Item(6, e.RowIndex).Value) = False Then
                 MsgBox("Das Datum existiert nicht!!!")
                 Datum = Now.Date
-                Table.Item(4, e.RowIndex).Value = Now.Date
+                Table.Item(6, e.RowIndex).Value = Now.Date
             Else
                 Datum = Now.Date
-                Table.Item(4, e.RowIndex).Value = Now.Date
+                Table.Item(6, e.RowIndex).Value = Now.Date
             End If
             doc = ReadData("dokumente", Table.Item(5, e.RowIndex).Value)
             doc.Set("Status", New BsonValue(CType(Table.Item(0, e.RowIndex).Value, Boolean)).AsBoolean)
             doc.Set("Bezeichnung", New BsonValue(Table.Item(1, e.RowIndex).Value))
-            doc.Set("Kontakt", New BsonValue(Table.Item(2, e.RowIndex).Value))
-            doc.Set("Ablage", New BsonValue(Table.Item(3, e.RowIndex).Value))
+            doc.Set("Bezeichnung", New BsonValue(Table.Item(2, e.RowIndex).Value))
+            doc.Set("Kontakt", New BsonValue(Table.Item(3, e.RowIndex).Value))
+            doc.Set("Ablage", New BsonValue(Table.Item(4, e.RowIndex).Value))
             doc.Set("Datum", New BsonValue(Datum).AsDateTime)
             UpdateData(doc, "dokumente")
-            If Table.CurrentCell.ColumnIndex = 3 Then
+            If Table.CurrentCell.ColumnIndex = 4 Then
                 ordner.DD.Clear()
 
                 For Each Document As BsonDocument In ReadAll("Ablage")
@@ -79,20 +79,21 @@ Public Class frm_Übersicht
             Dim Datum As Date = Document.Item("Datum").ToString
             Table.Rows.Add(
                 Document.Item("Status").ToString,
+                Document.Item("Priorität").ToString,
                 Document.Item("Bezeichnung").ToString,
                 Document.Item("Kontakt").ToString,
                 Document.Item("Ablage").ToString,
-                Datum,
-                Document.Item("_id").ToString
+                Document.Item("_id").ToString,
+                Datum
             )
         Next
         Dim anhang As IEnumerable(Of LiteFileInfo)
         For Each reihe As DataGridViewRow In Table.Rows
             anhang = LoadDocuments(reihe.Cells(5).Value)
             If anhang.Count <> 0 Then
-                reihe.Cells(6).Value = My.Resources.attachment_icon
+                reihe.Cells(7).Value = My.Resources.attachment_icon
             Else
-                reihe.Cells(6).Value = My.Resources.no_attachment_icon
+                reihe.Cells(7).Value = My.Resources.no_attachment_icon
             End If
         Next
         Table.ClearSelection()
@@ -164,16 +165,17 @@ Public Class frm_Übersicht
             LoadFiles(hitTestInfo.RowIndex)
         Else
             Table.ClearSelection()
-            Table.Rows.Add("False")
+            Table.Rows.Add("False", "C")
             Dim project As BsonDocument = New BsonDocument From {
                             {"Status", False},
+                            {"Priorität", "C"},
                             {"Bezeichnung", ""},
                             {"Kontakt", ""},
                             {"Ablage", ""},
                             {"Datum", Now.Date}
                         }
             WriteData(project, "dokumente")
-            Table.CurrentCell = Table.Rows.Item(Table.Rows.Count - 1).Cells(1)
+            Table.CurrentCell = Table.Rows.Item(Table.Rows.Count - 1).Cells(2)
             Table.CurrentRow.Cells(5).Value = ReadDataLast("dokumente").ToString
             frm_Main.Files.Clear()
             Try
@@ -219,8 +221,8 @@ Public Class frm_Übersicht
 
                             Exit For
                         Next
-                        Table.CurrentRow.Cells(1).Value = objMI.Subject.ToString
-                        Table.CurrentRow.Cells(2).Value = objMI.SenderName.ToString
+                        Table.CurrentRow.Cells(2).Value = objMI.Subject.ToString
+                        Table.CurrentRow.Cells(3).Value = objMI.SenderName.ToString
 
                         objOL = Nothing
                         objMI = Nothing
@@ -240,9 +242,9 @@ Public Class frm_Übersicht
         For Each reihe As DataGridViewRow In Table.Rows
             anhang = LoadDocuments(reihe.Cells(5).Value)
             If anhang.Count <> 0 Then
-                reihe.Cells(6).Value = My.Resources.attachment_icon
+                reihe.Cells(7).Value = My.Resources.attachment_icon
             Else
-                reihe.Cells(6).Value = My.Resources.no_attachment_icon
+                reihe.Cells(7).Value = My.Resources.no_attachment_icon
             End If
         Next
     End Sub
@@ -277,12 +279,11 @@ Public Class frm_Übersicht
     End Sub
 
     Private Sub Table_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles Table.EditingControlShowing
-        Dim titleText As String = Table.Columns(3).HeaderText
-        If Table.CurrentCell.ColumnIndex = 3 Then
-            Table.Columns(3).Width = 100
+        Dim titleText As String = Table.Columns(4).HeaderText
+        If Table.CurrentCell.ColumnIndex = 4 Then
+            Table.Columns(4).Width = 100
         End If
         If titleText.Equals("Ablage") Then
-
             Dim autoText As TextBox = TryCast(e.Control, TextBox)
             If autoText IsNot Nothing Then
                 autoText.AutoCompleteMode = AutoCompleteMode.Suggest
@@ -291,7 +292,17 @@ Public Class frm_Übersicht
                 addItems(DataCollection)
                 autoText.AutoCompleteCustomSource = DataCollection
             End If
+        ElseIf titleText.Equals("Priorität") Then
+            Dim autoText As TextBox = TryCast(e.Control, TextBox)
+            If autoText IsNot Nothing Then
+                autoText.AutoCompleteMode = AutoCompleteMode.Suggest
+                autoText.AutoCompleteSource = AutoCompleteSource.CustomSource
+                Dim DataCollection As New AutoCompleteStringCollection()
+                DataCollection.AddRange({"A", "B", "C"})
+                autoText.AutoCompleteCustomSource = DataCollection
+            End If
         End If
+
     End Sub
 
     Public Sub addItems(ByVal col As AutoCompleteStringCollection)
@@ -318,6 +329,10 @@ Public Class frm_Übersicht
         ElseIf e.RowIndex = -1 AndAlso e.ColumnIndex = Table.Columns.Count - 3 Then
             e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.ContentForeground)
             e.Graphics.DrawImage(My.Resources.calendar_icon, e.CellBounds)
+            e.Handled = True
+        ElseIf e.RowIndex = -1 AndAlso e.ColumnIndex = Table.Columns.Count - 7 Then
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.ContentForeground)
+            e.Graphics.DrawImage(My.Resources.Exclamation_icon, e.CellBounds)
             e.Handled = True
         End If
 

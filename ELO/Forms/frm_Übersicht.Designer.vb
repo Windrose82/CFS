@@ -25,20 +25,22 @@ Partial Class frm_Übersicht
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_Übersicht))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.Table = New System.Windows.Forms.DataGridView()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Abgeschlossen = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Priorität = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Bezeichnung = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ansprechpartner = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ablage = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Datum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Datum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Anhang = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -62,15 +64,15 @@ Partial Class frm_Übersicht
         Me.Table.BackgroundColor = System.Drawing.SystemColors.Window
         Me.Table.ColumnHeadersHeight = 32
         Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.Table.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Abgeschlossen, Me.Bezeichnung, Me.Ansprechpartner, Me.Ablage, Me.Datum, Me.ID, Me.Anhang})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial Unicode MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Table.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Table.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Abgeschlossen, Me.Priorität, Me.Bezeichnung, Me.Ansprechpartner, Me.Ablage, Me.ID, Me.Datum, Me.Anhang})
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial Unicode MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Table.DefaultCellStyle = DataGridViewCellStyle7
         Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(0, 0)
         Me.Table.MultiSelect = False
@@ -101,11 +103,20 @@ Partial Class frm_Übersicht
         Me.Abgeschlossen.TrueValue = "True"
         Me.Abgeschlossen.Width = 50
         '
+        'Priorität
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Priorität.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Priorität.HeaderText = "Priorität"
+        Me.Priorität.Name = "Priorität"
+        Me.Priorität.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Priorität.Width = 30
+        '
         'Bezeichnung
         '
         Me.Bezeichnung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.Bezeichnung.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.Bezeichnung.DefaultCellStyle = DataGridViewCellStyle3
         Me.Bezeichnung.HeaderText = "ABC"
         Me.Bezeichnung.Name = "Bezeichnung"
         Me.Bezeichnung.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -113,31 +124,21 @@ Partial Class frm_Übersicht
         '
         'Ansprechpartner
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Ansprechpartner.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Ansprechpartner.DefaultCellStyle = DataGridViewCellStyle4
         Me.Ansprechpartner.HeaderText = "Kontakt"
         Me.Ansprechpartner.Name = "Ansprechpartner"
         Me.Ansprechpartner.ToolTipText = "Kontak"
         '
         'Ablage
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Ablage.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Ablage.DefaultCellStyle = DataGridViewCellStyle5
         Me.Ablage.HeaderText = "Ablage"
         Me.Ablage.Name = "Ablage"
         Me.Ablage.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Ablage.ToolTipText = "Ablageort"
         Me.Ablage.Width = 55
-        '
-        'Datum
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.Format = "d"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.Datum.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Datum.HeaderText = "Datum"
-        Me.Datum.Name = "Datum"
-        Me.Datum.ToolTipText = "Datum"
         '
         'ID
         '
@@ -145,6 +146,16 @@ Partial Class frm_Übersicht
         Me.ID.Name = "ID"
         Me.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.ID.Visible = False
+        '
+        'Datum
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.Datum.DefaultCellStyle = DataGridViewCellStyle6
+        Me.Datum.HeaderText = "Datum"
+        Me.Datum.Name = "Datum"
+        Me.Datum.ToolTipText = "Datum"
         '
         'Anhang
         '
@@ -173,10 +184,11 @@ Partial Class frm_Übersicht
     Friend WithEvents Table As DataGridView
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
     Friend WithEvents Abgeschlossen As DataGridViewCheckBoxColumn
+    Friend WithEvents Priorität As DataGridViewTextBoxColumn
     Friend WithEvents Bezeichnung As DataGridViewTextBoxColumn
     Friend WithEvents Ansprechpartner As DataGridViewTextBoxColumn
     Friend WithEvents Ablage As DataGridViewTextBoxColumn
-    Friend WithEvents Datum As DataGridViewTextBoxColumn
     Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Datum As DataGridViewTextBoxColumn
     Friend WithEvents Anhang As DataGridViewImageColumn
 End Class

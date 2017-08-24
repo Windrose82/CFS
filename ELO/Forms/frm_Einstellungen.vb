@@ -46,7 +46,7 @@ Public Class frm_Einstellungen
             Dim id As String = grd_Ablage.CurrentRow.Cells(3).Value
 
             grd_Ablage.Rows.RemoveAt(grd_Ablage.CurrentRow.Index)
-        Else
+        ElseIf e.KeyValue = 46 And grd_Ablage.CurrentRow.Cells(3).Value Is Nothing Then
             grd_Ablage.Rows.RemoveAt(grd_Ablage.CurrentRow.Index)
 
         End If

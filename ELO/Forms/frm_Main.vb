@@ -47,9 +47,10 @@ Public Class frm_Main
 
     Private Sub btn_Add_Click(sender As Object, e As EventArgs) Handles btn_Add.Click
         If btn_Add.ImageIndex = 0 Then
-            frm_Übersicht.Table.Rows.Add("False")
+            frm_Übersicht.Table.Rows.Add("False", "C")
             Dim project As BsonDocument = New BsonDocument From {
                             {"Status", False},
+                            {"Priorität", "C"},
                             {"Bezeichnung", ""},
                             {"Kontakt", ""},
                             {"Ablage", ""},
@@ -57,7 +58,7 @@ Public Class frm_Main
                         }
             WriteData(project, "dokumente")
             frm_Übersicht.Table.ClearSelection()
-            frm_Übersicht.Table.CurrentCell = frm_Übersicht.Table.Rows.Item(frm_Übersicht.Table.Rows.Count - 1).Cells(1)
+            frm_Übersicht.Table.CurrentCell = frm_Übersicht.Table.Rows.Item(frm_Übersicht.Table.Rows.Count - 1).Cells(2)
             frm_Übersicht.Table.CurrentRow.Cells(5).Value = ReadDataLast("dokumente").ToString
             frm_Übersicht.Table.BeginEdit(True)
             Files.Clear()

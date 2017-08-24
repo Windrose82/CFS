@@ -37,6 +37,7 @@ Partial Class frm_Einstellungen
         Me.tb_nr = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tb_ordner = New System.Windows.Forms.TextBox()
+        Me.ord_Outlook = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.grd_Ablage = New System.Windows.Forms.DataGridView()
         Me.Ablage = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,7 +45,6 @@ Partial Class frm_Einstellungen
         Me.Maximum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.ord_Outlook = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -214,6 +214,19 @@ Partial Class frm_Einstellungen
         Me.tb_ordner.Size = New System.Drawing.Size(567, 22)
         Me.tb_ordner.TabIndex = 8
         '
+        'ord_Outlook
+        '
+        Me.ord_Outlook.BackColor = System.Drawing.Color.Transparent
+        Me.ord_Outlook.FlatAppearance.BorderSize = 0
+        Me.ord_Outlook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ord_Outlook.ImageIndex = 2
+        Me.ord_Outlook.ImageList = Me.ImageList2
+        Me.ord_Outlook.Location = New System.Drawing.Point(767, 93)
+        Me.ord_Outlook.Name = "ord_Outlook"
+        Me.ord_Outlook.Size = New System.Drawing.Size(31, 23)
+        Me.ord_Outlook.TabIndex = 9
+        Me.ord_Outlook.UseVisualStyleBackColor = False
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.grd_Ablage)
@@ -258,19 +271,6 @@ Partial Class frm_Einstellungen
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.Visible = False
-        '
-        'ord_Outlook
-        '
-        Me.ord_Outlook.BackColor = System.Drawing.Color.Transparent
-        Me.ord_Outlook.FlatAppearance.BorderSize = 0
-        Me.ord_Outlook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ord_Outlook.ImageIndex = 2
-        Me.ord_Outlook.ImageList = Me.ImageList2
-        Me.ord_Outlook.Location = New System.Drawing.Point(767, 93)
-        Me.ord_Outlook.Name = "ord_Outlook"
-        Me.ord_Outlook.Size = New System.Drawing.Size(31, 23)
-        Me.ord_Outlook.TabIndex = 9
-        Me.ord_Outlook.UseVisualStyleBackColor = False
         '
         'frm_Einstellungen
         '
