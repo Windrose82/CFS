@@ -33,7 +33,7 @@ Public Class frm_Übersicht
             End If
             doc = ReadData("dokumente", Table.Item(5, e.RowIndex).Value)
             doc.Set("Status", New BsonValue(CType(Table.Item(0, e.RowIndex).Value, Boolean)).AsBoolean)
-            doc.Set("Bezeichnung", New BsonValue(Table.Item(1, e.RowIndex).Value))
+            doc.Set("Priorität", New BsonValue(Table.Item(1, e.RowIndex).Value))
             doc.Set("Bezeichnung", New BsonValue(Table.Item(2, e.RowIndex).Value))
             doc.Set("Kontakt", New BsonValue(Table.Item(3, e.RowIndex).Value))
             doc.Set("Ablage", New BsonValue(Table.Item(4, e.RowIndex).Value))
@@ -97,6 +97,7 @@ Public Class frm_Übersicht
             End If
         Next
         Table.ClearSelection()
+        Table.Sort(Table.Columns.Item(1), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
 
     Private Sub Table_DragEnter(sender As Object, e As DragEventArgs) Handles Table.DragEnter
